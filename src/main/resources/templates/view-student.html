@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<title>Hello, world!</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Bharat International School</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Rollno</th>
+					<th scope="col">Name</th>
+					<th scope="col">Standard</th>
+					<th scope="col">Dob</th>
+					<th scope="col">Gender</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="stu:${allStudents}">
+					<td th:text="${stu.rollno}"></td>
+					<td th:text="${stu.name}"></td>
+					<td th:text="${stu.std}"> </td>
+					<td th:text="${stu.dob}"> </td>
+					<td th:text="${stu.gender}"></td>
+					<td>
+						<a th:href="@{/edit/{id}(id=${stu.rollno})}" class="btn btn-info">Edit</a>
+						<a th:href="@{/delete/{id}(id=${stu.rollno})}" class="btn btn-danger">Delete</a>
+					</td>
+
+
+
+				</tr>
+			</tbody>
+		</table>
+		<a href="/add" class="btn btn-warning">Add Student</a>
+		<a href="/search-male" class="btn btn-info">Male</a>
+		<a href="/search-female" class="btn btn-info">Female</a>
+		<a href="/search-custom" class="btn btn-danger">Custom Query</a>
+		<form action="/search-std" method ="POST" class="w-50">
+			<div class="form-group">
+				<input type="text" placeholder="Type Standard" class="form-control" name="std">
+				<input type="submit" value="search" class="btn btn-primary">
+							</div>
+		</form>
+		
+			<form action="/search-name" method ="POST" class="w-50">
+			<div class="form-group">
+				<input type="text" placeholder="Student Name" class="form-control" name="name">
+				<input type="submit" value="search" class="btn btn-info">
+							</div>
+		</form>
+		
+	
+	  
+		
+	</div>
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
